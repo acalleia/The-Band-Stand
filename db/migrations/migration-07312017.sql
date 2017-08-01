@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS threads
   id SERIAL PRIMARY KEY,
   thread text,
   user_id INT REFERENCES users(id),
-  table_id INT REFERENCES forums(id),
+  forum_id INT REFERENCES forums(id),
   favorite BOOLEAN
 );
 

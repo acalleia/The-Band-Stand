@@ -4,8 +4,9 @@ const Thread = {};
 
 Thread.findAll = (id) => {
   return db.query(`
-    SELECT * FROM threads;
-    `);
+    SELECT * FROM threads
+    WHERE forum_id = $1;
+    `, [id]);
 };
 
 Thread.findById = (id) => {

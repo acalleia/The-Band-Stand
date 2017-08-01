@@ -5,7 +5,8 @@ const Post = {};
 Post.findAll = (id) => {
   return db.query(`
     SELECT * FROM posts
-    `);
+    WHERE threads_id = $1
+    `, [id]);
 };
 
 Post.findById = (id) => {
