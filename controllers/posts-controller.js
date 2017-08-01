@@ -39,4 +39,16 @@ postsController.create = (req, res) => {
   });
 };
 
+postsController.favorite = (req, res) => {
+  Post.favorite(req.params.id)
+    .then(posts => {
+      res.render('/favorites', {
+        data: favorite,
+      });
+    }).catch(err => {
+    console.log(err);
+    req.status(500).json(err);
+  });
+}
+
 module.exports = postsController;

@@ -29,4 +29,16 @@ threadsController.create = (req, res) => {
   });
 };
 
+threadsController.favorite = (req, res) => {
+  Thread.favorite(req.params.id)
+    .then(threads => {
+      res.render('/favorites', {
+        data: favorite,
+      });
+    }).catch(err => {
+    console.log(err);
+    req.status(500).json(err);
+  });
+}
+
 module.exports = threadsController;
