@@ -9,12 +9,20 @@ Post.findAll = (id) => {
     `, [id]);
 };
 
-Post.findById = (id) => {
+Post.findByUser = (id) => {
   return db.oneOrNone(`
     SELECT * FROM posts
-    WHERE id = $1
+    WHERE user_id = $1
     `, [id]);
 };
+// posts.post?
+Post.create = (post, userid, threadsid) => {
+  return db.one(`
+    INSERT INTO posts
+    (post, user_id, threads_id)
+    VALUES ($1, $2, $3)
+    `, [post.post, userid, threadsid]);
+}
 
 Post.update = (post, id) => {
   return db.one(`

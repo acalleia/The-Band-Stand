@@ -16,4 +16,17 @@ threadsController.index = (req, res) => {
 
 threadsController.show = (req, res) => {
   Thread.findById(req.params)
-}
+};
+
+threadsController.create = (req, res) => {
+  Thread.create({
+    thread: req.body.thread,
+  }, req.user.id, req.forum.id).then(() => {
+    res.redirect('/threads');
+  }).catch(err => {
+    console.log(err);
+    req.status(500).json(err);
+  });
+};
+
+module.exports = threadsController;

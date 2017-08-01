@@ -16,6 +16,14 @@ Thread.findById = (id) => {
     `, [id]);
 };
 
+Thread.create = (thread, userid, forumid) => {
+  return db.one(`
+    INSERT INTO threads
+    (thread, user_id, forum_id)
+    VALUES ($1, $2, $3)
+    `, [thread.thread, userid, forumid]);
+};
+
 Thread.favorite = (id) => {
   return db.oneOrNone(`
     UPDATE posts SET
