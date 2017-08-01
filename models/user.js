@@ -32,4 +32,12 @@ User.findUserPosts = (id) => {
     `, [id]);
 };
 
+User.findUserActions = (id) => {
+  return db.manyOrNone(`
+    SELECT thread, post FROM posts
+    JOIN thread where threads_id = id
+    AND user_id = $1
+    `, [id]);
+};
+
 module.exports = User;
