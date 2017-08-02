@@ -1,0 +1,6 @@
+<% include ../partials/boilerplate %>
+
+<form action='/posts/<%= data.id %>?_method=PUT'>
+  <input name='post' type='text' value='<%= data.post %>' />
+  <input type='submit' value='Edit!' />
+</form>

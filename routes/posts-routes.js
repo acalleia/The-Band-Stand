@@ -1,7 +1,7 @@
 const express = require('express');
 const postsRouter = express.Router();
 
-const authHelpers = require('../services/auth-helpers');
+const authHelpers = require('../services/auth/auth-helpers');
 const postsController = require('../controllers/posts-controller');
 
 postsRouter.get('/', authHelpers.loginRequired, postsController.index);

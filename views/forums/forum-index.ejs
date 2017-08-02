@@ -1,0 +1,12 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+
+<div class='forums-container'>
+  <% for (let forum of data) { %>
+  <div class='forum-view'>
+    <a class='linkto' href='forums/<%= forum.id %>'><%= forum.topic %></a>
+  </div>
+  <% } %>
+</div>
+
+<% include ../partials/end %>

@@ -1,11 +1,9 @@
 INSERT INTO forums (topic) VALUES
-(
-  'Electronica',
-  'Jazz & Blues',
-  'Pop',
-  'Punk',
-  'R & B',
-  'Rap & Hip-Hop',
-  'Reggae',
-  'Rock'
-)
+('Electronica'),
+('Jazz and Blues'),
+('Pop'),
+('Punk'),
+('R and B'),
+('Rap and Hip-Hop'),
+('Reggae'),
+('Rock')

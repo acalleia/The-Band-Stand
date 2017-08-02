@@ -6,7 +6,7 @@ postsController.index = (req, res) => {
   Post.findAll(req.params.id)
   .then(posts => {
     res.render('posts/post-index', {
-      message: 'ok';
+      message: 'ok',
       data: posts,
     });
   }).catch(err => {

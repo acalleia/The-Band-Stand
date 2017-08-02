@@ -1,7 +1,7 @@
 const express = require('express');
 const threadsRouter = express.Router();
 
-const authHelpers = require('../services/auth-helpers');
+const authHelpers = require('../services/auth/auth-helpers');
 const threadsController = require('../controllers/threads-controller');
 
 threadsRouter.get('/', authHelpers.loginRequired, threadsController.index);

@@ -2,7 +2,7 @@ const db = require('../db/config');
 
 const Forum = {};
 
-Forum.findAll = (id) => {
+Forum.findAll = () => {
   return db.query(`
     SELECT * FROM forums
     `);
