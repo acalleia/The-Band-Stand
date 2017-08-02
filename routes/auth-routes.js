@@ -5,9 +5,7 @@ const authHelpers = require('../services/auth/auth-helpers');
 const usersController = require('../controllers/users-controller');
 
 authRouter.get('/login', authHelpers.loginRedirect, (req, res) => {
-  res.render('auth/login', {
-    currentPage: 'login',
-  });
+  res.render('auth/login');
 });
 
 authRouter.get('/register', authHelpers.loginRedirect, (req, res) => {
@@ -16,7 +14,7 @@ authRouter.get('/register', authHelpers.loginRedirect, (req, res) => {
   });
 });
 
-authRouter.post('/login', usersController.create);
+authRouter.post('/register', usersController.create);
 
 authRouter.post('/login', passport.authenticate('local', {
     successRedirect: '/user',

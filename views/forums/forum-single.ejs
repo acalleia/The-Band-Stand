@@ -1,0 +1,14 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+<div class='forum-hero'>
+  <h1><%= forums_topic %></h1>
+</div>
+<div class='thread'>
+  <% for (let thread of forums_topic) { %>
+  <div class='thread-view'>
+    <a class='linkto' href='threads/<%= thread.id %>'><%= thread.thread %></a>
+  </div>
+  <% } %>
+</div>
+
+<% include ../partials/end %>

@@ -19,7 +19,9 @@ forumsController.show = (req, res) => {
   Forum.findById(req.params.id)
   .then(forums => {
     res.render('forums/forum-single', {
-      data: forums,
+      forums_topic: forums.topic,
+
+      user: req.user,
     });
   }).catch(err => {
     console.log(err);
