@@ -2,8 +2,9 @@
 <% include ../partials/nav %>
 
 <div class='forum-container'>
-    <form method='POST' action='/forums/threads/threadId?_method=DELETE'>
+    <form method='POST' action='/threads/<%= threadId %>?_method=DELETE'>
       <input type='submit' value='Delete it!' />
     </form>
 </div>
+
 <% include ../partials/end %>

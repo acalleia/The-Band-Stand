@@ -33,6 +33,13 @@ Thread.create = (thread, userid, forumid) => {
     `, [thread.thread, userid, forumid]);
 };
 
+Thread.destroy = (id) => {
+  return db.none(`
+    DELETE FROM threads
+    WHERE id = $1
+    `, [id]);
+};
+
 Thread.favorite = (id) => {
   return db.oneOrNone(`
     UPDATE posts SET

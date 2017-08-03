@@ -1,4 +1,5 @@
 const Thread = require('../models/threads');
+const Forum = require('../models/forums');
 
 const threadsController = {};
 
@@ -14,20 +15,29 @@ threadsController.index = (req, res) => {
   });
 };
 
-
-
 threadsController.show = (req, res) => {
-  Thread.findByForum(req.params.id)
+  Thread.findById(req.params.id)
   .then(threads => {
-    res.render('threads/thread-single', {
-      data: threads,
-      user: req.user,
-    });
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
-};
+  console.log(req.params.threadId)
+    res.render(`threads/thread-single`, {
+      user: req.user.id,
+      threadId: req.params.threadId
+    })
+  })
+}
+
+// threadsController.show = (req, res) => {
+//   Thread.findByForum(req.params.id)
+//   .then(threads => {
+//     res.render('threads/thread-single', {
+//       data: threads,
+//       user: req.user,
+//     });
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
+//   });
+// };
 
 threadsController.create = (req, res) => {
   Thread.create({
@@ -50,6 +60,7 @@ threadsController.newThread = (req, res) => {
     res.render('forums/forum-single', {
       threads,
       user: req.user,
+      forumId: req.params.forumId
     });
   }).catch(err => {
     console.log(err);
@@ -57,6 +68,15 @@ threadsController.newThread = (req, res) => {
   });
 };
 
+threadsController.delete = (req, res) => {
+  Thread.destroy(req.params.threadId)
+  .then(() => {
+    res.redirect('/forums');
+  }).catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+}
 
 threadsController.favorite = (req, res) => {
   Thread.favorite(req.params.id)
