@@ -14,8 +14,19 @@ threadsController.index = (req, res) => {
   });
 };
 
+
+
 threadsController.show = (req, res) => {
-  Thread.findById(req.params)
+  Thread.findByForum(req.params.id)
+  .then(threads => {
+    res.render('threads/thread-single', {
+      data: threads,
+      user: req.user,
+    });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 };
 
 threadsController.create = (req, res) => {

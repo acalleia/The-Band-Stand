@@ -16,6 +16,14 @@ Thread.findById = (id) => {
     `, [id]);
 };
 
+Thread.findByForum = (id) => {
+  return db.manyOrNone(`
+    SELECT * FROM threads JOIN forums ON
+    threads.forum_id = forums.id
+    WHERE forums.id= $1
+    `, [id]);
+};
+
 Thread.create = (thread, userid, forumid) => {
   return db.one(`
     INSERT INTO threads

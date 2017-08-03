@@ -1,4 +1,5 @@
 const Forum = require('../models/forums');
+const Thread = require('../models/threads');
 
 const forumsController = {};
 
@@ -16,11 +17,11 @@ forumsController.index = (req, res) => {
 };
 
 forumsController.show = (req, res) => {
-  Forum.findById(req.params.id)
+  Thread.findByForum(req.params.id)
   .then(forums => {
+    console.log(forums);
     res.render('forums/forum-single', {
-      forums_topic: forums.topic,
-
+      forums: forums.forums,
       user: req.user,
     });
   }).catch(err => {

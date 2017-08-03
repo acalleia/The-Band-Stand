@@ -18,7 +18,7 @@ authRouter.post('/register', usersController.create);
 
 authRouter.post('/login', passport.authenticate('local', {
     successRedirect: '/user',
-    failureRedirect: 'auth/login',
+    failureRedirect: '/auth/login',
     failureFlash: true,
   })
 );

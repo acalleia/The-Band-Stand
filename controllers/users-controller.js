@@ -4,14 +4,7 @@ const bcrypt = require('bcryptjs');
 const usersController = {};
 
 usersController.index = (req, res) => {
-  User.findUserActions(req.user.id),
-  User.findUserPosts(req.user.id)
-    .then(threads => {
-      res.render('users/user-index', {
-        user: req.user,
-        data: posts,
-      });
-    });
+  res.redirect('/forums');
 };
 
 usersController.create = (req, res) => {
@@ -21,8 +14,8 @@ usersController.create = (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password_digest: hash,
-    firstname: req.body.first_name,
-    lastname: req.body.last_name,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
   }).then(user => {
     req.login(user, (err) => {
       if (err) return next(err);
