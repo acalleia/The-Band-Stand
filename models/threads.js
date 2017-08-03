@@ -29,6 +29,7 @@ Thread.create = (thread, userid, forumid) => {
     INSERT INTO threads
     (thread, user_id, forum_id)
     VALUES ($1, $2, $3)
+    RETURNING *
     `, [thread.thread, userid, forumid]);
 };
 

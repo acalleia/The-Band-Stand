@@ -1,16 +1,14 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav %>
 <div class='forum-hero'>
-  <h1><%= forums[0].topic %></h1>
+  <h1><%= threads[0].topic %></h1>
 </div>
-  <% for (let i= 0; i < forums.length; i++) { %>
+  <% for (let i= 0; i < threads.length; i++) { %>
   <div class='forum-view'>
-    <a class='linkto' href='/threads/<%= forums[i].id %>'><%= forums[i].thread %></a>
+    <a class='linkto' href='/threads/<%= threads[i].id %>'><%= threads[i].thread %></a>
   </div>
   <% } %>
 <div class='forum-view'>
-  <form method='POST' action='/threads/thread-add'>
-    <input type='submit' value='Create'>
-  </form>
+    <a class='linkto' href='/forums/<%= threads[0].forum_id %>/threads/new' type='submit' value='Create' >Create New Thread!</a>
 </div>
 <% include ../partials/end %>

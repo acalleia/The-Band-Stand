@@ -17,12 +17,12 @@ forumsController.index = (req, res) => {
 };
 
 forumsController.show = (req, res) => {
-  Forum.findById(req.params.id),
-  Thread.findByForum(req.params.id)
-  .then(forums => {
-    console.log(forums);
+
+  Thread.findByForum(req.params.forumId)
+  .then(threads => {
+    console.log(threads);
     res.render('forums/forum-single', {
-      forums,
+      threads,
       user: req.user,
     });
   }).catch(err => {

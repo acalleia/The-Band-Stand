@@ -44,10 +44,11 @@ app.get('/', (req, res) => {
 const forumsRoutes = require('./routes/forums-routes');
 app.use('/forums', forumsRoutes);
 const threadsRoutes = require('./routes/threads-routes');
-app.use('/forums/threads', threadsRoutes);
-app.use('/threads/create', threadsRoutes);
+app.use('/threads', threadsRoutes);
+app.use('/forums/:forumId/threads', threadsRoutes);
+
 const postsRoutes = require('./routes/posts-routes');
-app.use('/forums/threads/posts', postsRoutes);
+app.use('/forums/:forumId/threads/:threadId/posts', postsRoutes);
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
 const userRoutes = require('./routes/user-routes');

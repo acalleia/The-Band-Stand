@@ -33,13 +33,30 @@ threadsController.create = (req, res) => {
   Thread.create({
     thread: req.body.thread},
     req.user.id,
-    req.body.forums_id).then(() => {
-    res.render('/threads/thread-add');
+    req.params.forumId)
+  .then(() => {
+    console.log(req.params);
+    res.redirect(`/forums/${req.params.forumId}`);
   }).catch(err => {
     console.log(err);
     req.status(500).json(err);
   });
 };
+
+threadsController.newThread = (req, res) => {
+  Thread.findByForum(req.params.forumId)
+  .then(threads => {
+    console.log(threads);
+    res.render('forums/forum-single', {
+      threads,
+      user: req.user,
+    });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+};
+
 
 threadsController.favorite = (req, res) => {
   Thread.favorite(req.params.id)

@@ -2,7 +2,7 @@
 <% include ../partials/nav %>
 
 <div class='forum-container'>
-  <form method='POST' action='/threads/create'>
+  <form method='POST' action='/forums/<%= forum_id %>'>
     <input name='thread' type='text' placeholder='thread' required />
     <input type='submit' value='Post'>
   </form>
