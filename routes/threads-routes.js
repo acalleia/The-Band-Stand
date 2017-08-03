@@ -8,7 +8,7 @@ threadsRouter.get('/', authHelpers.loginRequired, threadsController.index);
 threadsRouter.post('/', authHelpers.loginRequired, threadsController.create);
 
 threadsRouter.get('/new', authHelpers.loginRequired, (req, res) => {
-  res.render('threads/threads-add');
+  res.render('threads/thread-add');
 });
 
 threadsRouter.get('/:id', authHelpers.loginRequired, threadsController.show);

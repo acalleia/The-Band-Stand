@@ -31,9 +31,10 @@ threadsController.show = (req, res) => {
 
 threadsController.create = (req, res) => {
   Thread.create({
-    thread: req.body.thread,
-  }, req.user.id, req.forum.id).then(() => {
-    res.redirect('/threads');
+    thread: req.body.thread},
+    req.user.id,
+    req.body.forums_id).then(() => {
+    res.render('/threads/thread-add');
   }).catch(err => {
     console.log(err);
     req.status(500).json(err);

@@ -1,0 +1,11 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+
+<div class='forum-container'>
+  <form method='POST' action='/threads/create'>
+    <input name='thread' type='text' placeholder='thread' required />
+    <input type='submit' value='Post'>
+  </form>
+</div>
+
+<% include ../partials/end %>

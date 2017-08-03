@@ -18,7 +18,7 @@ Thread.findById = (id) => {
 
 Thread.findByForum = (id) => {
   return db.manyOrNone(`
-    SELECT * FROM threads JOIN forums ON
+    SELECT threads.id, thread, user_id, forum_id, topic FROM threads JOIN forums ON
     threads.forum_id = forums.id
     WHERE forums.id= $1
     `, [id]);

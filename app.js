@@ -45,12 +45,14 @@ const forumsRoutes = require('./routes/forums-routes');
 app.use('/forums', forumsRoutes);
 const threadsRoutes = require('./routes/threads-routes');
 app.use('/forums/threads', threadsRoutes);
+app.use('/threads/create', threadsRoutes);
 const postsRoutes = require('./routes/posts-routes');
 app.use('/forums/threads/posts', postsRoutes);
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
 const userRoutes = require('./routes/user-routes');
 app.use('/user', userRoutes);
+
 
 app.get('*', (req, res) => {
     res.status(404).send('not found!');
