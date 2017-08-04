@@ -1,5 +1,6 @@
 const Forum = require('../models/forums');
 const Thread = require('../models/threads');
+const Post = require('../models/posts');
 
 const forumsController = {};
 
@@ -24,6 +25,7 @@ forumsController.show = (req, res) => {
     res.render('forums/forum-single', {
       threads,
       user: req.user,
+      forumId: req.params.forumId
     });
   }).catch(err => {
     console.log(err);

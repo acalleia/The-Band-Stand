@@ -3,25 +3,26 @@ const Post = require('../models/posts');
 const postsController = {};
 
 postsController.index = (req, res) => {
-  Post.findAll(req.params.id)
+  Post.findByThread(req.params.threadId)
   .then(posts => {
-    res.render('posts/post-index', {
-      message: 'ok',
-      data: posts,
+    console.log(posts),
+    console.log(threadId),
+    res.redirect('posts/post-index', {
+      posts,
+      user: req.user
     });
+  console.log(posts)
   }).catch(err => {
     console.log(err);
     res.status(500).json(err);
-  })
+  });
 };
 
 postsController.show = (req, res) => {
   Post.findByUser(req.params.id)
   .then(posts => {
-    res.render('posts/post-user', {
-      message: 'ok',
-      data: posts,
-    });
+    threads,
+    posts
   }).catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -30,9 +31,12 @@ postsController.show = (req, res) => {
 
 postsController.create = (req, res) => {
   Post.create({
-    post: req.body.post,
-  }, req.user.id, req.thread.id).then(() => {
-    res.redirect('/posts');
+    post: req.body.post},
+    req.user.id,
+    req.params.threadId,
+    req.params.forumId)
+   .then(() => {
+    res.redirect(`/forums`);
   }).catch(err => {
     console.log(err);
     req.status(500).json(err);

@@ -1,7 +1,36 @@
 const Thread = require('../models/threads');
 const Forum = require('../models/forums');
-
+const Post = require('../models/posts');
 const threadsController = {};
+
+threadsController.show = (req, res) => {
+  Thread.findById(req.params.threadId)
+  .then(threads => {
+  // console.log(req.params.threadId)
+    res.render(`threads/thread-single`, {
+      user: req.user.id,
+      threadId: req.params.threadId
+    });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({ err });
+  });
+};
+
+threadsController.newShow = (req, res) => {
+  Post.findByThread(req.params.threadId)
+  .then(posts => {
+  console.log(posts)
+    res.render(`threads/thread-single`, {
+      posts,
+      threadId:req.params.threadId,
+      user: req.user,
+    });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({ err });
+  });
+};
 
 threadsController.index = (req, res) => {
   Thread.findAll(req.params.id)
@@ -15,16 +44,19 @@ threadsController.index = (req, res) => {
   });
 };
 
-threadsController.show = (req, res) => {
-  Thread.findById(req.params.id)
-  .then(threads => {
-  console.log(req.params.threadId)
-    res.render(`threads/thread-single`, {
-      user: req.user.id,
-      threadId: req.params.threadId
-    })
-  })
-}
+// threadsController.show = (req, res) => {
+//   Thread.findById(req.params.id)
+//   .then(threads => {
+//   console.log(req.params.threadId)
+//     res.render(`threads/thread-single`, {
+//       user: req.user.id,
+//       threadId: req.params.threadId
+//     });
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(500).json({ err });
+//   });
+// };
 
 // threadsController.show = (req, res) => {
 //   Thread.findByForum(req.params.id)

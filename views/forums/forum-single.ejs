@@ -1,7 +1,9 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav %>
 <div class='forum-hero'>
+<% if (threads.length != 0) { %>
   <h1><%= threads[0].topic %></h1>
+
 </div>
   <% for (let i= 0; i < threads.length; i++) { %>
   <div class='forum-view'>
@@ -9,6 +11,9 @@
   </div>
   <% } %>
 <div class='forum-view'>
-    <a class='linkto' href='/forums/<%= threads[0].forum_id %>/threads/new' type='submit' value='Create' >Create New Thread!</a>
+    <a class='linkto' href='/forums/<%= threads[0].forum_id %>/threads/new'>Create New Thread!</a>
 </div>
+<% } else { %>
+<h1><%= forumId %></h1>
+<% } %>
 <% include ../partials/end %>
