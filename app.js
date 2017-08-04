@@ -47,9 +47,9 @@ const threadsRoutes = require('./routes/threads-routes');
 app.use('/threads', threadsRoutes);
 app.use('/forums/:forumId/threads', threadsRoutes);
 
-const postsRoutes = require('./routes/posts-routes');
-app.use('/posts', postsRoutes);
-app.use('/forums/:forumId/threads/:threadId/posts', postsRoutes);
+// const postsRoutes = require('./routes/posts-routes');
+// // app.use('/posts', postsRoutes);
+// app.use('/forums/:forumId/threads/:threadId/posts', postsRoutes);
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
 const userRoutes = require('./routes/user-routes');

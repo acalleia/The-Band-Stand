@@ -23,6 +23,7 @@ Post.create = (post, userid, threadsid) => {
     INSERT INTO posts
     (post, user_id, threads_id)
     VALUES ($1, $2, $3)
+    RETURNING *
     `, [post.post, userid, threadsid]);
 };
 

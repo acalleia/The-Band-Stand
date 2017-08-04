@@ -30,16 +30,16 @@ postsController.show = (req, res) => {
 };
 
 postsController.create = (req, res) => {
+  console.log(req.params);
   Post.create({
     post: req.body.post},
     req.user.id,
-    req.params.threadId,
-    req.params.forumId)
+    req.params.threadId)
    .then(() => {
     res.redirect(`/forums`);
   }).catch(err => {
     console.log(err);
-    req.status(500).json(err);
+    res.status(500).json(err);
   });
 };
 

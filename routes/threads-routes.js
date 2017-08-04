@@ -7,7 +7,6 @@ const postsController = require('../controllers/posts-controller');
 
 
 threadsRouter.get('/', authHelpers.loginRequired, threadsController.index);
-// threadsRouter.post('/', authHelpers.loginRequired, threadsController.create);
 
 // threadsRouter.get('/new', authHelpers.loginRequired, (req, res) => {
 //   console.log(req.params);
@@ -15,14 +14,15 @@ threadsRouter.get('/', authHelpers.loginRequired, threadsController.index);
 // });
 
 
-threadsRouter.get('/:threadId', authHelpers.loginRequired, threadsController.newShow, postsController.create, threadsController.show);
+threadsRouter.get('/:threadId', authHelpers.loginRequired, threadsController.newShow, threadsController.show);
 threadsRouter.get('/:threadId', authHelpers.loginRequired, threadsController.show);
 
 threadsRouter.get('/:threadId/posts/new', authHelpers.loginRequired, (req, res) => {
-  console.log(req.params.threadId);
-  res.render('/posts/post-add', {user: req.user.id, thread_id: req.params.threadId});
+
+  res.render('posts/post-add', {user: req.user.id, threads_id: req.params.threadId, posts: req.body.posts});
 });
 
+threadsRouter.post('/:threadId', authHelpers.loginRequired, postsController.create);
 threadsRouter.delete('/:threadId', authHelpers.loginRequired, threadsController.delete);
 
 
