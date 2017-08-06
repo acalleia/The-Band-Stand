@@ -36,6 +36,13 @@ Post.update = (post, id) => {
     `, [post.post, id]);
 };
 
+Post.findById = (id) => {
+  return db.oneOrNone(`
+    SELECT * FROM posts
+    WHERE id = $1
+  `, [id]);
+};
+
 Post.destroy = (id) => {
   return db.none(`
     DELETE FROM posts

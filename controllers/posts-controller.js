@@ -36,12 +36,53 @@ postsController.create = (req, res) => {
     req.user.id,
     req.params.threadId)
    .then(() => {
-    res.redirect(`/forums`);
+    res.redirect('/forums');
   }).catch(err => {
     console.log(err);
     res.status(500).json(err);
   });
 };
+
+postsController.update = (req, res) => {
+  console.log(req.params)
+  Post.update({
+    post: req.body.post},
+    req.params.threadId,
+    req.user.id,
+    req.params.postId)
+  .then(() => {
+    res.redirect('/forums');
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+};
+
+postsController.edit = (req, res) => {
+  Post.findById(req.params.postId)
+    .then(posts => {
+      res.render('posts/post-single-edit', {
+        posts,
+        threadId: req.params.threadId,
+        postId: req.params.postId,
+        user: req.user.id
+      });
+    }).catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+};
+
+postsController.delete = (req, res) => {
+  Post.destroy(req.params.postId)
+  .then(() => {
+    postId: req.params.id,
+    res.redirect('/forums');
+  }).catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+}
 
 postsController.favorite = (req, res) => {
   Post.favorite(req.params.id)

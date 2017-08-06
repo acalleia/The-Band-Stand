@@ -23,7 +23,10 @@ threadsRouter.get('/:threadId/posts/new', authHelpers.loginRequired, (req, res) 
 });
 
 threadsRouter.post('/:threadId', authHelpers.loginRequired, postsController.create);
+threadsRouter.get('/:threadId/posts/:postId/edit', authHelpers.loginRequired, postsController.edit);
+threadsRouter.put('/:threadId/posts/:postId', authHelpers.loginRequired, postsController.update);
 threadsRouter.delete('/:threadId', authHelpers.loginRequired, threadsController.delete);
+threadsRouter.delete('/:threadId/posts/:postId', authHelpers.loginRequired, postsController.delete);
 
 
 module.exports = threadsRouter;

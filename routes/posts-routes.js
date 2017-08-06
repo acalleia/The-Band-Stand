@@ -15,4 +15,6 @@ postsRouter.post('/:id', authHelpers.loginRequired, postsController.create);
 postsRouter.put('/:id/favorites', authHelpers.loginRequired, postsController.favorite);
 postsRouter.get('/:id/favorites', authHelpers.loginRequired, postsController.favorite);
 
+postssRouter.delete('/:id', authHelpers.loginRequired, postsController.delete);
+
 module.exports = postsRouter;

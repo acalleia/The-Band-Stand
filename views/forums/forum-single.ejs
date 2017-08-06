@@ -8,12 +8,18 @@
   <% for (let i= 0; i < threads.length; i++) { %>
   <div class='forum-view'>
     <a class='linkto' href='/threads/<%= threads[i].id %>'><%= threads[i].thread %></a>
+
   </div>
   <% } %>
 <div class='forum-view'>
-    <a class='linkto' href='/forums/<%= threads[0].forum_id %>/threads/new'>Create New Thread!</a>
+    <a class='linkto' href='/forums/<%= forumId %>/threads/new'>Create New Thread!</a>
 </div>
 <% } else { %>
 <h1><%= forumId %></h1>
+
+<div class='forum-view'>
+    <a class='linkto' href='/forums/<%= forumId %>/threads/new'>Create New Thread!</a>
+</div>
+
 <% } %>
 <% include ../partials/end %>
