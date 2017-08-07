@@ -1,16 +1,13 @@
 <% include ./partials/boilerplate %>
-<link rel='stylesheet' type='text/css' href='../styles/reset.css'>
-<link rel='stylesheet' type='text/css' href='../styles/style.css'>
 
-<div class='container'>
-  <h1><%= message %></h1>
+<div class='container-2'>
   <h3><%= subTitle %></h3>
 </div>
-<div class='forum-container'>
+<div class='login-reg'>
   <form method='POST' action='/auth/login'>
-    <input name='username' type='text' placeholder='username' required />
-    <input name='password' type='text' placeholder='password' required />
-    <input type='submit' value='Log In!'>
+    <input class='bar' name='username' type='text' placeholder='username' required />
+    <input class='bar' name='password' type='text' placeholder='password' required />
+    <input class='enter' type='submit' value='Log In!'>
   </form>
 </div>
 <div class='register-main'>

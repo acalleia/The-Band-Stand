@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+var normalizeCss = require("normalize.css");
 
 const app = express();
 
@@ -35,8 +36,6 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
   res.render('index', {
     message: 'The Band Stand',
-    currentPage: 'home',
-    documentTitle: 'The Band Stand',
     subTitle: 'Where music lovers can gather to trade, buy, and sell vintage band merch!'
   });
 });
