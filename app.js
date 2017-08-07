@@ -6,7 +6,6 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
-var normalizeCss = require("normalize.css");
 
 const app = express();
 

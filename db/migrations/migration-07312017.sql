@@ -1,4 +1,4 @@
-\c the_band_stand_dev
+
 
 CREATE TABLE IF NOT EXISTS users
 (
