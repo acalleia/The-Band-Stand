@@ -1,9 +1,9 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav %>
-
+<div class='login-reg'>
 <form method='POST' action='/threads/<%= threads_id %>'>
-  <input name='post' type='text' placeholder='Type Here' />
-  <input type='submit' value='Post' />
+  <input class='bar' name='post' type='text' placeholder='Type Here' />
+  <input class='enter' type='submit' value='Post' />
 </form>
-
+</div>
 <% include ../partials/end %>
