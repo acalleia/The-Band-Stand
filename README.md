@@ -18,9 +18,9 @@ the glove through their love of music and merch!
 
 ## Wireframe
 
-## <img src="images/CRUD-App-Pg-01.png">
-## <img src="images/CRUD-App-Pg-02.png">
-## <img src="images/CRUD-App-Pg-03.png">
+## ![color comps](assets/CRUD-App-Pg-01.png)    
+## ![navigating](assets/CRUD-App-Pg-02.png) 
+## ![mission statement](assets/CRUD-App-Pg-03.png) 
 
 ## Initial thoughts on hurdles
 
