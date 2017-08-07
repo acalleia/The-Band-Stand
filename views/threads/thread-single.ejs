@@ -17,7 +17,7 @@
     <a class='linkto' href='/threads/<%= threadId %>/posts/new'>Create New Post!</a>
 </div>
 <% console.log(user) %>
-<div class='forum-container'>
+<div class='thread-create'>
     <form method='POST' action='/threads/<%= threadId %>?_method=DELETE'>
       <input type='submit' value='Delete Thread ' />
     </form>

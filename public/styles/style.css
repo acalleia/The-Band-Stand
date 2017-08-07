@@ -155,6 +155,12 @@ div.forum-view a{
   color: #D76800;
 }
 
+.thread-create input {
+  font-size: 2vw;
+  text-decoration: none;
+  color: #D76800;
+}
+
 .thread-create {
   margin: 2vw;
 }
@@ -175,6 +181,10 @@ div.forum-view a{
   color: #D76800;
 }
 
+.post-view a:hover {
+  color: #D76800;
+}
+
 .navBar a:hover {
   color: #D76800;
 }
@@ -188,3 +198,13 @@ div.forum-view a{
   color: white;
 }
 
+.post-delete:hover {
+  color: #414042;
+}
+
+.post-change a:hover {
+  color: #414042;
+}
+.thread-create input:hover {
+  color: white;
+}
