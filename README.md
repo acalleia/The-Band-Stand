@@ -46,8 +46,9 @@ Phase 2- Bonus
 
 
 ## Sample Code
-    
-    const express = require('express');
+
+```     
+const express = require('express');
 const threadsRouter = express.Router();
 
 const authHelpers = require('../services/auth/auth-helpers');
@@ -73,9 +74,11 @@ threadsRouter.delete('/:threadId/posts/:postId', authHelpers.loginRequired, post
 
 
 module.exports = threadsRouter;
-
+```
 
 ## Links and Resources
+
+The App: https://immense-depths-23632.herokuapp.com/
 
 Big thanks to:
 
